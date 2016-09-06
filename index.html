@@ -23,15 +23,48 @@
      var urlToGetAllOpenBugs = "https://api.github.com/repos/michael-collins/mission-commander/issues?state=open";
       $(document).ready(function () {
           $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
-              $("div#list").append("MISSION FEED: CMD " + allIssues.length + "</br>");
+              $("div#list").append("FEED: CMD " + allIssues.length + "</br>");
               $.each(allIssues, function (i, issue) {
                   $("div#list")
-                      .append("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
+                      .appenmid("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
               });
           });
       });
     </script>
-
+    <script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+    
+        var renderer = new THREE.WebGLRenderer();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      
+        // this line adds threejs to the entire page, we don't want to do that
+        // document.body.appendChild( renderer.domElement );
+      
+        // set the threejs to render onto the blog post's <div>
+        document.getElementById("blog-threejs").appendChild( renderer.domElement ); 
+      
+        var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+        var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+        var cube = new THREE.Mesh( geometry, material );
+        scene.add( cube );
+    
+        camera.position.z = 5;
+      
+        // set default background color
+        renderer.setClearColor( 0xffffff, 1);
+      
+        var render = function () 
+        {
+          requestAnimationFrame( render );
+    
+          cube.rotation.x += 0.01;
+          cube.rotation.y += 0.01;
+          renderer.render(scene, camera);
+        };
+      
+        render();
+    </script>
 
   </body>
 </html>
