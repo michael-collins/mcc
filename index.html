@@ -23,10 +23,10 @@
      var urlToGetAllOpenBugs = "https://api.github.com/repos/michael-collins/mission-commander/issues?state=open";
       $(document).ready(function () {
           $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
-              $("div#list").append("FEED: CMD " + allIssues.length + "</br>");
+              $("div#list").append("<b>FEED: CMD " + allIssues.length + "</b></br>");
               $.each(allIssues, function (i, issue) {
                   $("div#list")
-                      .append("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
+                      .append("<div id='" + issue.title + "'>" + issue.title + "</div>");
               });
           });
       });
