@@ -26,11 +26,12 @@
               $("div#list").append("FEED: CMD " + allIssues.length + "</br>");
               $.each(allIssues, function (i, issue) {
                   $("div#list")
-                      .appenmid("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
+                      .append("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
               });
           });
       });
     </script>
+
 
   </body>
 </html>
