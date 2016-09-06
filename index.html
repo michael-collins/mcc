@@ -29,43 +29,67 @@
                       .append("<div id='" + issue.title + "'><b>" + issue.title + "</b></div>");
               });
           });
+          
+          var currentChart;
+  
+  function setChartDimensions() {
+    var width = $("section").width(),
+        height = $("footer").offset().top - $("canvas").offset().top - 20;
+    if (currentChart) {
+      currentChart.chart.aspectRatio = width / height;
+    } else {
+      $("canvas").attr("width", width);
+      $("canvas").attr("height", height);
+    }
+  }
+  
+  function drawChart() {
+    var data = {
+      labels: ["January", "February", "March", "April", "May", "June", "July"],
+      datasets: [
+        {
+          label: "My First dataset",
+          fillColor: "rgba(220,220,220,0.2)",
+          strokeColor: "rgba(220,220,220,1)",
+          pointColor: "rgba(220,220,220,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(220,220,220,1)",
+          data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+          label: "My Second dataset",
+          fillColor: "rgba(151,187,205,0.2)",
+          strokeColor: "rgba(151,187,205,1)",
+          pointColor: "rgba(151,187,205,1)",
+          pointStrokeColor: "#fff",
+          pointHighlightFill: "#fff",
+          pointHighlightStroke: "rgba(151,187,205,1)",
+          data: [28, 48, 40, 19, 86, 27, 90]
+        }
+      ]
+    };
+    setChartDimensions();
+    var ctx = $("canvas")[0].getContext("2d");
+    currentChart = new Chart(ctx).Line(data, {animation: false, responsive: false});
+  }
+  
+  window.onload = function() {
+    drawChart();
+    $(window).resize(function() {
+      if (currentChart) {
+        setChartDimensions();
+        currentChart.stop();
+        currentChart.resize(currentChart.render, true);
+      }
+    });
+  };
       });
     </script>
 
       
 <script>
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: lineChartData,
-    options: options
-});
-var lineChartData = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
-    datasets: [
-        {
-            label: "My First dataset",
-            fill: false,
-            lineTension: 0.1,
-            backgroundColor: "rgba(75,192,192,0.4)",
-            borderColor: "rgba(75,192,192,1)",
-            borderCapStyle: 'butt',
-            borderDash: [],
-            borderDashOffset: 0.0,
-            borderJoinStyle: 'miter',
-            pointBorderColor: "rgba(75,192,192,1)",
-            pointBackgroundColor: "#fff",
-            pointBorderWidth: 1,
-            pointHoverRadius: 5,
-            pointHoverBackgroundColor: "rgba(75,192,192,1)",
-            pointHoverBorderColor: "rgba(220,220,220,1)",
-            pointHoverBorderWidth: 2,
-            pointRadius: 1,
-            pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40],
-            spanGaps: false,
-        }
-    ]
-};
+
 </script>
 
   </body>
