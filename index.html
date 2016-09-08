@@ -26,7 +26,7 @@
               $("div#list").append("<b>FEED: CMD " + allIssues.length + "</b></br>");
               $.each(allIssues, function (i, issue) {
                   $("div#list")
-                      .append("<div id='" + issue.title + "'>" + issue.title + "</div>");
+                      .append("<div class='" + issue.title + "'>" + issue.title + "</div>");
               });
           });
       });
