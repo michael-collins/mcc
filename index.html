@@ -7,18 +7,29 @@
     <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/github-light.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css"> 
     <meta name="viewport" content="width=device-width">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
-    
-    <div id="list">
+    <div class="container">
+        <div class="row">
+          <div class="col s6">
+
+            <div id="list"></div>
+          
+          </div>
+          <div class="col s6">
+
+          </div>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.min.js"></script>
-<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-<script src="javascripts/scale.fix.js"></script>
+
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="javascripts/scale.fix.js"></script>
     <script>
      var urlToGetAllOpenBugs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100";
       $(document).ready(function () {
@@ -26,12 +37,10 @@
               $("div#list").append("<b>FEED: CMD " + allIssues.length + "</b></br>");
               $.each(allIssues, function (i, issue) {
                   $("div#list")
-                      .append("<div class='" + issue.title + "'>" + issue.title + "</div>");
+                      .append("<div class='issue-title" + issue.title + "'><span class='issue-title'" + issue.title + "</span><div class='viz'></div></div>");
               });
           });
       });
     </script>
-
-
   </body>
 </html>
