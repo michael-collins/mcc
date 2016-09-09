@@ -7,7 +7,9 @@ img {
 .viz img {
     padding: 2rem 0 0;
 }
-
+.hide {
+	display: none;
+}
 div#list>div {
 	border-top:1px #ccc solid;
 	margin:2rem 0;
