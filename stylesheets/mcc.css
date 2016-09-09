@@ -5,7 +5,9 @@ img {
 }
 
 
-div#list {
+div#list>div {
+	border-top:1px #ccc solid;
+	margin:2rem;
 }
 /* Commands */
 .msg_incoming {
