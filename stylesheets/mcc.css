@@ -1,3 +1,15 @@
+body {
+  background-color: #fff;
+  padding:50px;
+  font: 14px/1.5 'Space Mono', monospace;
+  color:#727272;
+  font-weight:400;
+}
+
+div#all div {
+  text-transform:uppercase;
+}
+
 img {
   -webkit-filter: grayscale(100%) contrast(150%) brightness(150%); 
   max-width: 100%;
@@ -10,7 +22,7 @@ img {
 .hide {
 	display: none;
 }
-div#list>div {
+div#msg>div, div#logs>div, div#locations>div {
 	border-top:1px #ccc solid;
 	margin:2rem 0;
 }

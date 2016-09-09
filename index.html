@@ -46,21 +46,21 @@
      var urlToGetAllLocations = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=location";
       $(document).ready(function () {
           $.getJSON(urlToGetAllLogs, function (allLogs) {
-              $("div#logs").append("<b>+ " + allLogs.length + "</b></br>");
+              $("div#logs").append("<b>logs +" + allLogs.length + "</b></br>");
               $.each(allLogs, function (i, log) {
                   $("div#logs")
                       .append("<div class='title log-title" + log.title + "'><span class='log-title'>" + log.title + "</span><div class='log viz'>" + log.body +"</div></div>");
               });
           });
           $.getJSON(urlToGetAllLocations, function (allLocations) {
-              $("div#locations").append("<b>+ " + allLocations.length + "</b></br>");
+              $("div#locations").append("<b>location +" + allLocations.length + "</b></br>");
               $.each(allLocations, function (i, location) {
                   $("div#locations")
                       .append("<div class='title location-title " + location.title + "'><span class='title location-title'>" + location.title + "</span><div class='location viz'>" + location.body +"</div></div>");
               });
           });
           $.getJSON(urlToGetAllMsg, function (allMsg) {
-              $("div#msg").append("<b>+ " + allMsg.length + "</b></br>");
+              $("div#msg").append("<b>message +" + allMsg.length + "</b></br>");
               $.each(allMsg, function (i, msg) {
                   $("div#msg")
                       .append("<div class='title msg-title " + msg.title + "'><span class='title msg-title'>" + msg.title + "</span><div class='viz'>" + msg.body +"</div></div>");
