@@ -1,4 +1,4 @@
-fb-img, ios-img {
+.fb-img, .ios-img {
   -webkit-filter: ggrayscale(100%) contrast(150%) brightness(150%); 
 }
 
