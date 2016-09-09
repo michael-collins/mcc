@@ -3,7 +3,9 @@ img {
   max-width: 100%;
   height: auto;
 }
-
+.viz img {
+    padding: 2rem 0 0;
+}
 
 div#list>div {
 	border-top:1px #ccc solid;
