@@ -34,7 +34,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script>
-     var urlToGetAllOpenBugs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100", rel="next";
+     var urlToGetAllOpenBugs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100";
       $(document).ready(function () {
           $.getJSON(urlToGetAllOpenBugs, function (allIssues) {
               $("div#list").append("<b>+ " + allIssues.length + "</b></br>");
