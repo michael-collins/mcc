@@ -2,6 +2,7 @@ img {
   -webkit-filter: grayscale(100%) contrast(150%) brightness(150%); 
   max-width: 100%;
   height: auto;
+  max-height: 20rem;
 }
 .viz img {
     padding: 2rem 0 0;
