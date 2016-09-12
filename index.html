@@ -55,7 +55,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script>
-     var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
+     //var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
      var urlToGetAllLogs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=log";
      var urlToGetAllLocations = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=location";
      var urlToGetAllAudio = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=audio";
@@ -74,13 +74,13 @@
                       .append("<div class='title location-title " + location.title + "'><span class='title location-title'>" + location.title + "</span><div class='location viz'>" + location.body +"</div></div>");
               });
           });
-          $.getJSON(urlToGetAllMsg, function (allMsg) {
-              $("div#msg").append("<b>message +" + allMsg.length + "</b></br>");
-              $.each(allMsg, function (i, msg) {
-                  $("div#msg")
-                      .append("<div class='title msg-title " + msg.title + "'><span class='title msg-title'>" + msg.title + "</span><div class='viz'>" + msg.body +"</div></div>");
-              });
-          });
+          // $.getJSON(urlToGetAllMsg, function (allMsg) {
+          //     $("div#msg").append("<b>message +" + allMsg.length + "</b></br>");
+          //     $.each(allMsg, function (i, msg) {
+          //         $("div#msg")
+          //             .append("<div class='title msg-title " + msg.title + "'><span class='title msg-title'>" + msg.title + "</span><div class='viz'>" + msg.body +"</div></div>");
+          //     });
+          // });
           $.getJSON(urlToGetAllAudio, function (allAudio) {
               $("div#msg").append("<b>audio +" + allAudio.length + "</b></br>");
               $.each(allAudio, function (i, audio) {
