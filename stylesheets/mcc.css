@@ -10,7 +10,9 @@ span.title, span.log-title {
     font-weight: bold;
     text-transform: uppercase;
 }
-
+audio {
+	margin: 1rem 0 0;
+}
 img {
   -webkit-filter: grayscale(100%) contrast(150%) brightness(150%); 
   max-width: 100%;
