@@ -6,8 +6,9 @@ body {
   font-weight:400;
 }
 
-div#all div {
-  text-transform:uppercase;
+span.title, span.log-title {
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 img {
