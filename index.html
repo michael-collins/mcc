@@ -51,13 +51,14 @@
         </div>
     </div>
 
-    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script>
      var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
      var urlToGetAllLogs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=log";
      var urlToGetAllLocations = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=location";
+     var urlToGetAllAudio = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=audio";
       $(document).ready(function () {
           $.getJSON(urlToGetAllLogs, function (allLogs) {
               $("div#logs").append("<b>logs +" + allLogs.length + "</b></br>");
@@ -78,6 +79,13 @@
               $.each(allMsg, function (i, msg) {
                   $("div#msg")
                       .append("<div class='title msg-title " + msg.title + "'><span class='title msg-title'>" + msg.title + "</span><div class='viz'>" + msg.body +"</div></div>");
+              });
+          });
+          $.getJSON(urlToGetAllAudio, function (allAudio) {
+              $("div#msg").append("<b>message +</b></br>");
+              $.each(allAudio, function (i, audio) {
+                  $("div#msg")
+                      .append("<div class='title audio-title'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio><div class='viz'>" + audio.body +"</div></div>");
               });
           });
       });
