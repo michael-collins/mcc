@@ -85,7 +85,7 @@
               $("div#msg").append("<b>audio +" + allAudio.length + "</b></br>");
               $.each(allAudio, function (i, audio) {
                   $("div#msg")
-                      .append("<div class='title audio-title'><span class='title'>log_audio_rand</span></div><div><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio></div><div class='viz'>" + audio.body +"</div>");
+                      .append("<div class='title audio-title'><span class='title'>log_audio_rand</span><div><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio></div><div class='viz'>" + audio.body +"</div></div>");
               });
           });
       });
