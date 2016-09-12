@@ -82,7 +82,7 @@
               });
           });
           $.getJSON(urlToGetAllAudio, function (allAudio) {
-              $("div#msg").append("<b>message +</b></br>");
+              $("div#msg").append("<b>audio +" + allAudio.length + "</b></br>");
               $.each(allAudio, function (i, audio) {
                   $("div#msg")
                       .append("<div class='title audio-title'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio><div class='viz'>" + audio.body +"</div></div>");
