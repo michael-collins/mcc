@@ -22,7 +22,7 @@
           <div class="nav-wrapper">
             <ul id="slide-out" class="side-nav">
               <div class="userView">
-              <img src="https://unsplash.it/200/300" data-adaptive-background>
+              <img class="user-img" src="https://unsplash.it/200/300" data-adaptive-background>
               <a href="#" class="button-close show-on-large center"><i class="material-icons">clear</i></a>
                 <h1>Privy</h1>
                 <p>
@@ -92,9 +92,13 @@
                       .append("<div class='title audio-title'><span class='title'>log_audio_rand</span><div class='viz'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio>" + audio.body +"</div></div>");
               });
           });
-
+          // Profile image/color
           $.adaptiveBackground.run();
-
+          $('img.user-img').on('ab-color-found', function(ev,payload){
+            console.log(payload.color);   // The dominant color in the image.
+            console.log(payload.palette); // The color palette found in the image.
+            console.log(ev);   // The jQuery.Event object
+          });
       });
     </script>
     <script>
