@@ -23,6 +23,9 @@ img {
   height: auto;
   max-height: 20rem;
 }
+img.user-img {
+	-webkit-filter:none;
+}
 .viz img {
     padding: 2rem 0 0;
 }
