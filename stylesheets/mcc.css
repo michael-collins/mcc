@@ -14,6 +14,9 @@ audio {
     width: 100%;
     max-width: 100%;
 }
+.nav-wrapper {
+	padding:15px;
+}
 img {
   -webkit-filter: grayscale(100%) contrast(150%) brightness(150%); 
   max-width: 100%;
