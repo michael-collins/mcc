@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>MCC by michael-collins</title>
+    <title>PRIVY by michael-collins</title>
     <link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/mcc.css">
@@ -22,6 +22,7 @@
           <div class="nav-wrapper">
             <ul id="slide-out" class="side-nav">
               <div class="userView">
+              <img src="https://unsplash.it/200/300" data-adaptive-background>
               <a href="#" class="button-close show-on-large center"><i class="material-icons">clear</i></a>
                 <h1>Privy</h1>
                 <p>
@@ -56,6 +57,7 @@
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
+    <script src="javascripts/jquery.adaptive-backgrounds.js"></script>
     <script>
      //var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
      var urlToGetAllLogs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=log";
@@ -90,6 +92,9 @@
                       .append("<div class='title audio-title'><span class='title'>log_audio_rand</span><div class='viz'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio>" + audio.body +"</div></div>");
               });
           });
+
+          $.adaptiveBackground.run();
+
       });
     </script>
     <script>
@@ -102,11 +107,12 @@
       // $('.button-collapse').sideNav('show');
       // $('.button-close').sideNav('hide');
       $('.button-collapse').sideNav({
-      menuWidth: 300, // Default is 240
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-    }
-  );
+          menuWidth: 300, // Default is 240
+          edge: 'left', // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        }
+      )
+
     </script>
   </body>
 </html>
