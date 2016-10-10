@@ -57,3 +57,6 @@ div#msg>div, div#logs>div, div#locations>div {
 .loc_confirmed {
 
 }
+.feeder {
+  padding-top:25vh;
+}
