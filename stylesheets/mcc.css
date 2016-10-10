@@ -60,5 +60,7 @@ div#msg>div, div#logs>div, div#locations>div {
 @media screen and (min-device-width: 600px) {
   .feeder {
   padding-top:25vh;
+  padding-left:50px;
+  padding-right:50px;
 }
 }
