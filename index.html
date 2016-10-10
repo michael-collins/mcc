@@ -58,9 +58,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script src="javascripts/jquery.adaptive-backgrounds.js"></script>
-    
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r79/three.min.js"></script> -->
+    <!-- <script src="Detector.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="OBJLoader.js"></script>
+    <script src="MTLLoader.js"></script>
+    <script src="javascripts/3d-object.js"></script> -->
     <script>
-     //var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
+      //var urlToGetAllMsg = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=30&mentioned=msg";
      var urlToGetAllLogs = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=log";
      var urlToGetAllLocations = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=location";
      var urlToGetAllAudio = "https://api.github.com/repos/michael-collins/mcc/issues?state=open&owner=michael-collins&per_page=100&mentioned=audio";
@@ -68,39 +73,54 @@
           $.getJSON(urlToGetAllLogs, function (allLogs) {
               $("div#logs").append("<b>logs +" + allLogs.length + "</b></br>");
               $.each(allLogs, function (i, log) {
-                  $("div#logs")
-                      .append("<div class='title log-title" + log.title + "'><span class='log-title'>" + log.title + "</span><div class='log viz'>" + log.body +"</div></div>");
+                setTimeout(function(){
+                  $("div#logs div").hide();
+                  $("div#logs").append("<div class='title log-title" + log.title + "'><span class='log-title'>" + log.title + "</span><div class='log viz'>" + log.body +"</div></div>");
+                  $("div#logs div").css("display", "block !important");
+                  if(--window.nAux == 0) //If cycle ended...
+                       setTimeout(function(){ urlToGetAllLogs(allLogs); }, 20000); //Start again in 10 seconds
+                }, 20000*i); //Wait 10 seconds  
               });
           });
           $.getJSON(urlToGetAllLocations, function (allLocations) {
               $("div#locations").append("<b>location +" + allLocations.length + "</b></br>");
-              $.each(allLocations, function (i, location) {
-                  $("div#locations")
-                      .append("<div class='title location-title " + location.title + "'><span class='title location-title'>" + location.title + "</span><div class='location viz'>" + location.body +"</div></div>");
+              $.each(allLocations, function (i, location) {                 
+                setTimeout(function(){
+                  $("div#locations div").hide();
+                  $("div#locations").append("<div class='title location-title " + location.title + "'><span class='title location-title'>" + location.title + "</span><div class='location viz'>" + location.body +"</div></div>");
+                  $("div#locations div").css("display", "block !important");
+                  if(--window.nAux == 0) //If cycle ended...
+                       setTimeout(function(){ urlToGetAllLogs(allLocations); }, 20000); //Start again in 10 seconds
+                }, 20000*i); //Wait 10 seconds  
               });
           });
-          // $.getJSON(urlToGetAllMsg, function (allMsg) {
-          //     $("div#msg").append("<b>message +" + allMsg.length + "</b></br>");
-          //     $.each(allMsg, function (i, msg) {
-          //         $("div#msg")
-          //             .append("<div class='title msg-title " + msg.title + "'><span class='title msg-title'>" + msg.title + "</span><div class='viz'>" + msg.body +"</div></div>");
-          //     });
-          // });
+        
           $.getJSON(urlToGetAllAudio, function (allAudio) {
-              $("div#msg").append("<b>audio +" + allAudio.length + "</b></br>");
+            //$("div#msg div").hide();  
+           
               $.each(allAudio, function (i, audio) {
-                  $("div#msg")
-                      .append("<div class='title audio-title'><span class='title'>log_audio_rand</span><div class='viz'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio>" + audio.body +"</div></div>");
+                setTimeout(function(){
+                  $("span#msg-log").hide();
+                  $("div#msg div").hide();
+                  $("div#msg").prepend("<div class='title audio-title'><span class='title'>log_audio_rand</span><div class='viz'><audio controls><source src='" + audio.title + "' type='audio/mpeg'>Your browser does not support the audio element.</audio>" + audio.body +"</div></div>");
+                  $('div#msg div:first div audio').trigger("play");
+                   $("div#msg").prepend("<span id='msg-log'><b>audio +" + allAudio.length + "</b></span></br>");
+                  if(--window.nAux == 0) //If cycle ended...
+                       setTimeout(function(){ urlToGetAllLogs(allAudio); }, 20000); //Start again in 10 seconds
+                }, 20000*i); //Wait 10 seconds   
               });
           });
-          // Profile image/color
-          $.adaptiveBackground.run();
-          $('img.user-img').on('ab-color-found', function(ev,payload){
-            console.log(payload.color);   // The dominant color in the image.
-            console.log(payload.palette); // The color palette found in the image.
-            console.log(ev);   // The jQuery.Event object
-          });
+        //$( "div#msg" ).children().addClass("hide");
+      
+     setTimeout(function(){
+         window.location.reload(1);
+      }, 501000); // 510 seconds
+        
+        
       });
+
+
+
     </script>
     <script>
       // Initialize collapse button
