@@ -64,3 +64,6 @@ div#msg>div, div#logs>div, div#locations>div {
   padding-right:50px;
 }
 }
+.side-nav {
+  width:500px;
+}
